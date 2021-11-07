@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""CLIP guided sampling from a diffusion model."""
+
 import argparse
 from functools import partial
 from pathlib import Path
@@ -38,7 +40,8 @@ def spherical_dist_loss(x, y):
 
 
 def main():
-    p = argparse.ArgumentParser()
+    p = argparse.ArgumentParser(description=__doc__,
+                                formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     p.add_argument('prompt', type=str,
                    help='the text prompt')
     p.add_argument('--batch-size', '-bs', type=int, default=1,
