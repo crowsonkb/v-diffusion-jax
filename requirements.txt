@@ -1,7 +1,12 @@
 dm-haiku
 einops
+ftfy
 jax
 jaxlib
 numpy
 optax
+regex
 Pillow
+torch
+torchvision
+tqdm
