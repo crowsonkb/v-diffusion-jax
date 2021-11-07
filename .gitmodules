@@ -1,0 +1,3 @@
+[submodule "CLIP_JAX"]
+	path = CLIP_JAX
+	url = https://github.com/kingoflolz/CLIP_JAX

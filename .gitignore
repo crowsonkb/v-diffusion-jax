@@ -1,0 +1,7 @@
+venv*
+__pycache__
+.ipynb_checkpoints
+*.pkl
+out*
+*.egg-info
+*.ini

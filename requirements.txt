@@ -1,0 +1,7 @@
+dm-haiku
+einops
+jax
+jaxlib
+numpy
+optax
+Pillow
