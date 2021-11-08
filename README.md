@@ -10,26 +10,17 @@ The models are denoising diffusion probabilistic models (https://arxiv.org/abs/2
 
 - dm-haiku, einops, numpy, optax, Pillow, tqdm (install with `pip install`)
 
-- CLIP_JAX (https://github.com/kingoflolz/CLIP_JAX), and its additional pip-installable dependencies: ftfy, regex, torch, torchvision (it does not need GPU PyTorch). If you `git clone --recursive` this repo, it should fetch CLIP_JAX automatically.
+- CLIP_JAX (https://github.com/kingoflolz/CLIP_JAX), and its additional pip-installable dependencies: ftfy, regex, torch, torchvision (it does not need GPU PyTorch). **If you `git clone --recursive` this repo, it should fetch CLIP_JAX automatically.**
 
 ## Models:
 
-- Danbooru SFW 128x128 (https://v-diffusion.s3.us-west-2.amazonaws.com/danbooru_128.pkl)
+- [Danbooru SFW 128x128](https://v-diffusion.s3.us-west-2.amazonaws.com/danbooru_128.pkl), SHA-256 `8551fe663dae988e619444efd99995775c7618af2f15ab5d8caf6b123513c334`
 
-- ImageNet 128x128 (https://v-diffusion.s3.us-west-2.amazonaws.com/imagenet_128.pkl)
+- [ImageNet 128x128](https://v-diffusion.s3.us-west-2.amazonaws.com/imagenet_128.pkl), SHA-256 `4fc7c817b9aaa9018c6dbcbf5cd444a42f4a01856b34c49039f57fe48e090530`
 
-- WikiArt 128x128 (https://v-diffusion.s3.us-west-2.amazonaws.com/wikiart_128.pkl)
+- [WikiArt 128x128](https://v-diffusion.s3.us-west-2.amazonaws.com/wikiart_128.pkl), SHA-256 `8fbe4e0206262996ff76d3f82a18dc67d3edd28631d4725e0154b51d00b9f91a`
 
-- WikiArt 256x256 (https://v-diffusion.s3.us-west-2.amazonaws.com/wikiart_256.pkl)
-
-SHA-256 hashes:
-
-```
-8551fe663dae988e619444efd99995775c7618af2f15ab5d8caf6b123513c334  checkpoints/danbooru_128.pkl
-4fc7c817b9aaa9018c6dbcbf5cd444a42f4a01856b34c49039f57fe48e090530  checkpoints/imagenet_128.pkl
-8fbe4e0206262996ff76d3f82a18dc67d3edd28631d4725e0154b51d00b9f91a  checkpoints/wikiart_128.pkl
-ebc6e77865bbb2d91dad1a0bfb670079c4992684a0e97caa28f784924c3afd81  checkpoints/wikiart_256.pkl
-```
+- [WikiArt 256x256](https://v-diffusion.s3.us-west-2.amazonaws.com/wikiart_256.pkl), SHA-256 `ebc6e77865bbb2d91dad1a0bfb670079c4992684a0e97caa28f784924c3afd81`
 
 ## Sampling
 
