@@ -12,7 +12,7 @@ The models are denoising diffusion probabilistic models (https://arxiv.org/abs/2
 
 - CLIP_JAX (https://github.com/kingoflolz/CLIP_JAX), and its additional pip-installable dependencies: ftfy, regex, torch, torchvision (it does not need GPU PyTorch). **If you `git clone --recursive` this repo, it should fetch CLIP_JAX automatically.**
 
-## Models:
+## Model checkpoints:
 
 - [Danbooru SFW 128x128](https://v-diffusion.s3.us-west-2.amazonaws.com/danbooru_128.pkl), SHA-256 `8551fe663dae988e619444efd99995775c7618af2f15ab5d8caf6b123513c334`
 
@@ -23,6 +23,16 @@ The models are denoising diffusion probabilistic models (https://arxiv.org/abs/2
 - [WikiArt 256x256](https://v-diffusion.s3.us-west-2.amazonaws.com/wikiart_256.pkl), SHA-256 `ebc6e77865bbb2d91dad1a0bfb670079c4992684a0e97caa28f784924c3afd81`
 
 ## Sampling
+
+### Example
+
+If the model checkpoints are stored in `checkpoints/`, the following will generate an image:
+
+```
+./clip_sample.py "a friendly robot, watercolor by James Gurney" --model wikiart_256 --seed 0
+```
+
+If they are somewhere else, you need to specify the path to the checkpoint with `--checkpoint`.
 
 ### Unconditional sampling
 
@@ -36,7 +46,7 @@ usage: sample.py [-h] [--batch-size BATCH_SIZE] [--checkpoint CHECKPOINT] [--eta
 
 `--checkpoint`: manually specify the model checkpoint file
 
-`--eta`: set to 0 for deterministic (DDIM) sampling, 1 for stochastic (DDPM) sampling, and in between to interpolate between the two. DDIM is preferred for low numbers of timesteps.
+`--eta`: set to 0 for deterministic (DDIM) sampling, 1 (the default) for stochastic (DDPM) sampling, and in between to interpolate between the two. DDIM is preferred for low numbers of timesteps.
 
 `--model`: specify the model to use
 
