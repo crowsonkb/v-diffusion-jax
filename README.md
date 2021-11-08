@@ -1,8 +1,16 @@
 # v-diffusion-jax
 
-v objective diffusion inference code for JAX.
+v objective diffusion inference code for JAX, by Katherine Crowson ([@RiversHaveWings](https://twitter.com/RiversHaveWings)) and Chainbreakers AI ([@jd_pressman](https://twitter.com/jd_pressman)).
 
 The models are denoising diffusion probabilistic models (https://arxiv.org/abs/2006.11239), which are trained to reverse a gradual noising process, allowing the models to generate samples from the learned data distributions starting from random noise. DDIM-style deterministic sampling (https://arxiv.org/abs/2010.02502) is also supported. The models are also trained on continuous timesteps. They use the 'v' objective from Progressive Distillation for Fast Sampling of Diffusion Models (https://openreview.net/forum?id=TIdIXIpzhoI).
+
+## Dependencies
+
+- JAX ([installation instructions](https://github.com/google/jax#installation))
+
+- dm-haiku, einops, numpy, optax, Pillow, tqdm (install with `pip install`)
+
+- CLIP_JAX (https://github.com/kingoflolz/CLIP_JAX), and its additional pip-installable dependencies: ftfy, regex, torch, torchvision (it does not need GPU PyTorch). If you `git clone --recursive` this repo, it should fetch CLIP_JAX automatically.
 
 ## Models:
 
