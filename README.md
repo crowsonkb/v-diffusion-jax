@@ -4,6 +4,8 @@ v objective diffusion inference code for JAX, by Katherine Crowson ([@RiversHave
 
 The models are denoising diffusion probabilistic models (https://arxiv.org/abs/2006.11239), which are trained to reverse a gradual noising process, allowing the models to generate samples from the learned data distributions starting from random noise. DDIM-style deterministic sampling (https://arxiv.org/abs/2010.02502) is also supported. The models are also trained on continuous timesteps. They use the 'v' objective from Progressive Distillation for Fast Sampling of Diffusion Models (https://openreview.net/forum?id=TIdIXIpzhoI).
 
+Thank you to Google's [TPU Research Cloud](https://sites.research.google/trc/about/) and [stability.ai](https://www.stability.ai) for compute to train these models!
+
 ## Dependencies
 
 - JAX ([installation instructions](https://github.com/google/jax#installation))
