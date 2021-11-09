@@ -10,6 +10,7 @@ import sys
 from einops import repeat
 import jax
 import jax.numpy as jnp
+from PIL import Image
 from tqdm import tqdm, trange
 
 from diffusion import get_model, get_models, load_params, sampling, utils
@@ -52,12 +53,16 @@ def main():
                    help='the CLIP guidance scale')
     p.add_argument('--eta', type=float, default=1.,
                    help='the amount of noise to add during sampling (0-1)')
+    p.add_argument('--init', type=str,
+                   help='the init image')
     p.add_argument('--model', type=str, choices=get_models(), required=True,
                    help='the model to use')
     p.add_argument('-n', type=int, default=1,
                    help='the number of images to sample')
     p.add_argument('--seed', type=int, default=0,
                    help='the random seed')
+    p.add_argument('--starting-timestep', '-st', type=float, default=0.9,
+                   help='the timestep to start at (used with init images)')
     p.add_argument('--steps', type=int, default=1000,
                    help='the number of timesteps')
     args = p.parse_args()
@@ -75,6 +80,11 @@ def main():
                                std=[0.26862954, 0.26130258, 0.27577711])
 
     target_embed = text_fn(clip_params, clip_jax.tokenize([args.prompt]))
+
+    if args.init:
+        _, y, x = model.shape
+        init = Image.open(args.init).convert('RGB').resize((x, y), Image.LANCZOS)
+        init = utils.from_pil_image(init)[None]
 
     key = jax.random.PRNGKey(args.seed)
 
@@ -110,6 +120,10 @@ def main():
                               cond_fn=clip_cond_fn,
                               cond_params=cond_params)
         steps = utils.get_ddpm_schedule(jnp.linspace(1, 0, args.steps + 1)[:-1])
+        if args.init:
+            steps = steps[steps < args.starting_timestep]
+            alpha, sigma = utils.t_to_alpha_sigma(steps[0])
+            noise = init * alpha + noise * sigma
         return sampling.sample_loop(model, params, subkey, noise, steps, args.eta, sample_step)
 
     def run_all(key, n, batch_size):

@@ -48,11 +48,15 @@ usage: sample.py [-h] [--batch-size BATCH_SIZE] [--checkpoint CHECKPOINT] [--eta
 
 `--eta`: set to 0 for deterministic (DDIM) sampling, 1 (the default) for stochastic (DDPM) sampling, and in between to interpolate between the two. DDIM is preferred for low numbers of timesteps.
 
+`--init`: specify the init image (optional)
+
 `--model`: specify the model to use
 
 `-n`: sample until this many images are sampled (default 1)
 
 `--seed`: specify the random seed (default 0)
+
+`--starting-timestep`: specify the starting timestep if an init image is used (range 0-1, default 0.9)
 
 `--steps`: specify the number of diffusion timesteps (default is 1000, can lower for faster but lower quality sampling)
 
