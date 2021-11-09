@@ -54,3 +54,25 @@ def sample_loop(model, params, key, x, steps, eta, sample_step):
         else:
             _, pred = sample_step(model, params, subkey, x, steps[i], steps[i], eta)
     return pred
+
+
+def reverse_sample_step(model, params, key, x, t, t_next, extra_args):
+    dummy_key = jax.random.PRNGKey(0)
+    v = model.apply(params, dummy_key, x, repeat(t, '-> n', n=x.shape[0]), extra_args)
+    alpha, sigma = utils.t_to_alpha_sigma(t)
+    key, subkey = jax.random.split(key)
+    pred = x * alpha - v * sigma
+    eps = x * sigma + v * alpha
+    alpha_next, sigma_next = utils.t_to_alpha_sigma(t_next)
+    x = pred * alpha_next + eps * sigma_next
+    return x, pred
+
+
+jit_reverse_sample_step = jax.jit(reverse_sample_step, static_argnums=0)
+
+
+def reverse_sample_loop(model, params, key, x, steps, sample_step):
+    for i in trange(len(steps) - 1):
+        key, subkey = jax.random.split(key)
+        x, _ = sample_step(model, params, subkey, x, steps[i], steps[i + 1])
+    return x
