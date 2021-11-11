@@ -1,0 +1,25 @@
+build:
+  cuda: 11.0
+  gpu: true
+  python_version: "3.8"
+  system_packages:
+    - "libgl1-mesa-glx"
+    - "libglib2.0-0"
+  python_packages:
+    - "torch==1.7.1"
+    - "torchvision==0.8.2"
+    - "numpy==1.18.1"
+    - "ipython==7.21.0"
+    - "Pillow==8.3.1"
+    - "ftfy==6.0.3"
+    - "tqdm==4.62.3"
+    - "einops==0.3.2"
+    - "dm-haiku==0.0.4"
+    - "optax==0.0.9"
+    - "requests==2.26.0"
+    - "regex==2021.10.8"
+  run:
+    - pip install --upgrade pip
+    - pip install --upgrade jax jaxlib==0.1.69+cuda110 -f https://storage.googleapis.com/jax-releases/jax_releases.html
+
+predict: "predict.py:Predictor"
