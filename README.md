@@ -16,13 +16,13 @@ Thank you to Google's [TPU Research Cloud](https://sites.research.google/trc/abo
 
 ## Model checkpoints:
 
-- [Danbooru SFW 128x128](https://v-diffusion.s3.us-west-2.amazonaws.com/danbooru_128.pkl), SHA-256 `8551fe663dae988e619444efd99995775c7618af2f15ab5d8caf6b123513c334`
+- [Danbooru SFW 128x128](https://the-eye.eu/public/AI/models/v-diffusion/danbooru_128.pkl), SHA-256 `8551fe663dae988e619444efd99995775c7618af2f15ab5d8caf6b123513c334`
 
-- [ImageNet 128x128](https://v-diffusion.s3.us-west-2.amazonaws.com/imagenet_128.pkl), SHA-256 `4fc7c817b9aaa9018c6dbcbf5cd444a42f4a01856b34c49039f57fe48e090530`
+- [ImageNet 128x128](https://the-eye.eu/public/AI/models/v-diffusion/imagenet_128.pkl), SHA-256 `4fc7c817b9aaa9018c6dbcbf5cd444a42f4a01856b34c49039f57fe48e090530`
 
-- [WikiArt 128x128](https://v-diffusion.s3.us-west-2.amazonaws.com/wikiart_128.pkl), SHA-256 `8fbe4e0206262996ff76d3f82a18dc67d3edd28631d4725e0154b51d00b9f91a`
+- [WikiArt 128x128](https://the-eye.eu/public/AI/models/v-diffusion/wikiart_128.pkl), SHA-256 `8fbe4e0206262996ff76d3f82a18dc67d3edd28631d4725e0154b51d00b9f91a`
 
-- [WikiArt 256x256](https://v-diffusion.s3.us-west-2.amazonaws.com/wikiart_256.pkl), SHA-256 `ebc6e77865bbb2d91dad1a0bfb670079c4992684a0e97caa28f784924c3afd81`
+- [WikiArt 256x256](https://the-eye.eu/public/AI/models/v-diffusion/wikiart_256.pkl), SHA-256 `ebc6e77865bbb2d91dad1a0bfb670079c4992684a0e97caa28f784924c3afd81`
 
 ## Sampling
 
